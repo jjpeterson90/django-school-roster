@@ -4,6 +4,8 @@ import json
 # Create your models here.
 import csv
 import os
+import json
+import pprint
 
 
 class School:
@@ -14,7 +16,7 @@ class School:
 
     def find_student_by_id(self, school_id):
         for student in self.students:
-            if student.school_id == school_id:
+            if int(student.school_id) == school_id:
                 return student
         
         return None
@@ -24,6 +26,10 @@ class School:
             if staff.employee_id == employee_id:
                 return staff
         
+        return None
+    
+    def add_student(self, student_obj):
+        self.students.append(student_obj)
         return None
 
 
